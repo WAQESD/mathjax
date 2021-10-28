@@ -1,10 +1,13 @@
 import "./App.css";
 import Example from "./Component/Example";
+import Base from "./Component/Base";
 
 function App() {
   return (
     <div className="App">
-      <Example></Example>
+      <div className="container">
+        <Base fontSize={80} depth={0}></Base>
+      </div>
     </div>
   );
 }

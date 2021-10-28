@@ -11,5 +11,36 @@
 
 .input {
   width: 60%;
-  resize: none  ;
+  resize: none;
+}
+
+.base-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.base-input {
+  font-weight: bold;
+  border: none;
+}
+
+.add-button {
+  height: auto;
+  margin: 0 4px;
+  border: none;
+  background-color: white;
+}
+
+.add-button:hover {
+  background-color: grey;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
 }
