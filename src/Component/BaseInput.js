@@ -8,7 +8,6 @@ const BaseInput = ({ fontSize, size, setSize, setDisplay }) => {
       onChange={(e) =>
         setSize(e.target.value.length <= 1 ? 1 : e.target.value.length)
       }
-      onFocus={(e) => setDisplay("")}
     />
   );
 };

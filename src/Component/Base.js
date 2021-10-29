@@ -4,35 +4,33 @@ import BaseButton from "./BaseButton";
 
 const Base = ({ fontSize, depth }) => {
   const [size, setSize] = useState(1);
-  const [display, setDisplay] = useState("none");
+  const [display, setDisplay] = useState("white");
+  const [, forceUpdate] = useState();
+
+  const buttonProps = { fontSize, display, depth };
+  const inputProps = { fontSize, size, setSize, setDisplay };
 
   return (
     <>
       {depth < 2 ? (
-        <div className="base-container">
+        <div
+          className="base-container"
+          onFocus={(e) => setDisplay("black")}
+          onBlur={(e) => setDisplay("white")}
+        >
           <div className="button-wrapper">
-            <BaseButton fontSize={fontSize} display={display} depth={depth} />
-            <BaseButton fontSize={fontSize} display={display} depth={depth} />
+            <BaseButton {...buttonProps} />
+            <BaseButton {...buttonProps} />
           </div>
-          <BaseInput
-            fontSize={fontSize}
-            size={size}
-            setSize={(v) => setSize(v)}
-            setDisplay={(v) => setDisplay(v)}
-          />
+          <BaseInput {...inputProps} />
           <div className="button-wrapper">
-            <BaseButton fontSize={fontSize} display={display} depth={depth} />
-            <BaseButton fontSize={fontSize} display={display} depth={depth} />
+            <BaseButton {...buttonProps} />
+            <BaseButton {...buttonProps} />
           </div>
         </div>
       ) : (
         <div className="base-container">
-          <BaseInput
-            fontSize={fontSize}
-            size={size}
-            setSize={(v) => setSize(v)}
-            setDisplay={(v) => setDisplay(v)}
-          />
+          <BaseInput {...inputProps} />
         </div>
       )}
     </>

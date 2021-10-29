@@ -4,7 +4,7 @@ import Base from "./Base";
 const BaseButton = ({ fontSize, display, depth }) => {
   return (
     <button
-      style={{ fontSize: `${fontSize / 2}pt`, display }}
+      style={{ fontSize: `${fontSize / 2}pt`, color: display }}
       className="add-button"
       onClick={(e) => {
         console.log(e);
