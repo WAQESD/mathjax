@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Base from "./Base";
 
-const Equal = ({ fontSize, depth }) => {
+const Equal = ({ setText, fontSize, depth }) => {
+  const [leftText, setLeftText] = useState("");
+  const [rightText, setRightText] = useState("");
   const baseProps = { fontSize, depth };
+
+  useEffect(() => {
+    setText(leftText + "=" + rightText);
+  }, [leftText, rightText]);
   return (
     <div className="equal-wrapper">
-      <Base {...baseProps}></Base>
+      <Base {...baseProps} setText={setLeftText}></Base>
       <div
         className="equal"
         style={{
@@ -15,7 +21,7 @@ const Equal = ({ fontSize, depth }) => {
       >
         =
       </div>
-      <Base {...baseProps}></Base>
+      <Base {...baseProps} setText={setRightText}></Base>
     </div>
   );
 };

@@ -4,7 +4,10 @@ import BaseButton from "./BaseButton";
 
 const Base = ({ fontSize, depth, setText, setClick }) => {
   const [size, setSize] = useState(1);
-  const [activeArr, setActiveArr] = useState([0, 0, 0, 0]);
+  const [upSubscript, setUpSubscript] = useState("");
+  const [downSubscript, setDownSubscript] = useState("");
+  const [input, setInput] = useState("");
+  const [activeArr, setActiveArr] = useState([0, 0]);
   const [buttonStyle, setButtonStyle] = useState({
     left: { display: "", opacity: "0%" },
     right: { display: "", opacity: "0%" },
@@ -16,19 +19,15 @@ const Base = ({ fontSize, depth, setText, setClick }) => {
   };
 
   const onMouseEnter = () => {
-    setButtonStyle({
-      left: { display: "", opacity: "" },
-      right: { display: "", opacity: "" },
-    });
+    setButtonStyle({ display: "", opacity: "" });
   };
 
   const setButtonDisplay = () => {
     let newButtonStyle = {
-      left: { display: "", opacity: "0%" },
-      right: { display: "", opacity: "0%" },
+      display: "",
+      opacity: "0%",
     };
-    newButtonStyle.left.display = activeArr[0] || activeArr[1] ? "" : "none";
-    newButtonStyle.right.display = activeArr[2] || activeArr[3] ? "" : "none";
+    newButtonStyle.display = activeArr[0] || activeArr[1] ? "" : "none";
     setButtonStyle(newButtonStyle);
   };
 
@@ -36,10 +35,17 @@ const Base = ({ fontSize, depth, setText, setClick }) => {
     setButtonDisplay();
   }, [activeArr]);
 
+  useEffect(() => {
+    let newText = "";
+    if (input) newText += input;
+    if (downSubscript) newText += "_{" + downSubscript + "}";
+    if (upSubscript) newText += "^{" + upSubscript + "}";
+    setText(newText);
+  }, [input, downSubscript, upSubscript]);
+
   const buttonProps = {
     fontSize,
     depth,
-    setText,
     focusInput,
     activeArr,
     setActiveArr,
@@ -61,29 +67,19 @@ const Base = ({ fontSize, depth, setText, setClick }) => {
     <>
       {depth < 2 ? (
         <div className="base-container" onMouseLeave={() => setButtonDisplay()}>
-          <div className="button-wrapper-left">
+          <BaseInput {...inputProps} setText={setInput} />
+          <div className="button-wrapper">
             <BaseButton
               {...buttonProps}
               pos={0}
-              buttonStyle={buttonStyle.left}
+              buttonStyle={buttonStyle}
+              setText={setUpSubscript}
             />
             <BaseButton
               {...buttonProps}
               pos={1}
-              buttonStyle={buttonStyle.left}
-            />
-          </div>
-          <BaseInput {...inputProps} />
-          <div className="button-wrapper-right">
-            <BaseButton
-              {...buttonProps}
-              pos={2}
-              buttonStyle={buttonStyle.right}
-            />
-            <BaseButton
-              {...buttonProps}
-              pos={3}
-              buttonStyle={buttonStyle.right}
+              buttonStyle={buttonStyle}
+              setText={setDownSubscript}
             />
           </div>
         </div>

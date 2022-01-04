@@ -9,6 +9,7 @@ const BaseInput = ({
   activeArr,
   baseInput,
   onMouseEnter,
+  setText,
 }) => {
   const checkEmpty = (arr) => {
     return arr.reduce((sum, e) => sum + e) ? false : true;
@@ -36,6 +37,7 @@ const BaseInput = ({
         setSize(
           e.target && e.target.value.length >= 1 ? getSize(e.target.value) : 1
         );
+        setText(e.target.value);
       }}
       onBlur={(e) => {
         if (
