@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/mathjax/static/css/main.0ddfdcca.chunk.css",
+    "main.js": "/mathjax/static/js/main.6a0dd27e.chunk.js",
+    "main.js.map": "/mathjax/static/js/main.6a0dd27e.chunk.js.map",
+    "runtime-main.js": "/mathjax/static/js/runtime-main.0b6c9d5c.js",
+    "runtime-main.js.map": "/mathjax/static/js/runtime-main.0b6c9d5c.js.map",
+    "static/js/2.184d3266.chunk.js": "/mathjax/static/js/2.184d3266.chunk.js",
+    "static/js/2.184d3266.chunk.js.map": "/mathjax/static/js/2.184d3266.chunk.js.map",
+    "static/js/3.64e1ebb1.chunk.js": "/mathjax/static/js/3.64e1ebb1.chunk.js",
+    "static/js/3.64e1ebb1.chunk.js.map": "/mathjax/static/js/3.64e1ebb1.chunk.js.map",
+    "index.html": "/mathjax/index.html",
+    "static/css/main.0ddfdcca.chunk.css.map": "/mathjax/static/css/main.0ddfdcca.chunk.css.map",
+    "static/js/2.184d3266.chunk.js.LICENSE.txt": "/mathjax/static/js/2.184d3266.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/mathjax/static/media/NanumGothicCoding.6297642a.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0b6c9d5c.js",
+    "static/js/2.184d3266.chunk.js",
+    "static/css/main.0ddfdcca.chunk.css",
+    "static/js/main.6a0dd27e.chunk.js"
+  ]
+}
